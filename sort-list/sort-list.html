@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <div id="alphabeticalList"></div>
+        
+        <script>
+            let items = ["Apple", "Banana", "Cherry", "Date", "Elderberry", "Apricot", "Blueberry"];
+            items.sort();
+
+            console.log(items);
+
+            let groupedItems = items.reduce((groups, item) => {
+                let firstLetter = item.charAt(0).toUpperCase();
+                if (!groups[firstLetter]) {
+                    groups[firstLetter] = [];
+                }
+                groups[firstLetter].push(item);
+                return groups;
+            }, {});
+
+            console.log(groupedItems);
+
+            let alphabeticalListDiv = document.getElementById("alphabeticalList");
+
+            for (let letter in groupedItems) {
+                let heading = document.createElement("h2");
+                heading.textContent = letter;
+                alphabeticalListDiv.appendChild(heading);
+
+                let ul = document.createElement("ul");
+                groupedItems[letter].forEach(item => {
+                    let li = document.createElement("li");
+                    li.textContent = item;
+                    ul.appendChild(li);
+                });
+                alphabeticalListDiv.appendChild(ul);
+            }
+        </script>
+    </body>
+</html>

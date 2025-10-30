@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            .container {
+                margin: 0 auto;
+                padding: 0 15px;
+            }
+            main {
+                p {
+                    padding: 50px 0;
+                }
+            }
+            #footer {
+                padding: 30px 0;
+                background: #415a77;
+                border-top: 2px solid #0d1b2a;
+                .container {
+                    display: flex;
+                    flex-wrap: wrap;
+                }
+                .footer-links {
+                    width: 100%;
+                    padding-bottom: 15px;
+                }
+                ul {
+                    list-style: none;
+                    li {
+                        a {
+                            display: block;
+                            font-size: 16px;
+                            padding: 15px 0;
+                            color: #fff;
+                            text-decoration: none;
+                            .text-icon {
+                                .text {
+                                    font-size: 1.125em;
+                                    position: relative;
+                                    .material-symbols-outlined {
+                                        position: absolute;
+                                        top: 0;
+                                        right: -30px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            @media(min-width: 768px) {
+                .container {
+                    width: 720px;
+                }
+                #footer .footer-links {
+                    width: 50%;
+                }
+            }
+            @media(min-width: 992px) {
+                .container {
+                    width: 960px;
+                }
+                #footer .footer-links {
+                    width: 25%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <div class="container">
+                <p>This is an example of how an text wrapping but the icon stays in place.</p>
+            </div>
+        </main>
+        <footer id="footer">
+            <div class="container">
+                <div class="footer-links">
+                    <h3>List 1</h3>
+                    <ul>
+                        <li>
+                            <a href="">
+                                <div class="text-icon">
+                                    <span class="text">Link Item 1<span class="material-symbols-outlined">chevron_right</span></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class="text-icon">
+                                    <span class="text">Link Item 2<span class="material-symbols-outlined">chevron_right</span></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class="text-icon">
+                                    <span class="text">Link Item 3 - kind of long<span class="material-symbols-outlined">chevron_right</span></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class="text-icon">
+                                    <span class="text">Link Item 4<span class="material-symbols-outlined">chevron_right</span></span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>List 2</h3>
+                    <ul>
+                        <li>
+                            <a href="">
+                                <div class="text-icon">
+                                    <span class="text">Link Item 1<span class="material-symbols-outlined">chevron_right</span></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class="text-icon">
+                                    <span class="text">Link Item 2 - realllllyyyy looonnngggggggggg<span class="material-symbols-outlined">chevron_right</span></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class="text-icon">
+                                    <span class="text">Link Item 3<span class="material-symbols-outlined">chevron_right</span></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class="text-icon">
+                                    <span class="text">Link Item 4 - longer<span class="material-symbols-outlined">chevron_right</span></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class="text-icon">
+                                    <span class="text">Link Item 5<span class="material-symbols-outlined">chevron_right</span></span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>List 3</h3>
+                    <ul>
+                        <li>
+                            <a href="">
+                                <div class="text-icon">
+                                    <span class="text">Link Item 1<span class="material-symbols-outlined">chevron_right</span></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class="text-icon">
+                                    <span class="text">Link Item 2<span class="material-symbols-outlined">chevron_right</span></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class="text-icon">
+                                    <span class="text">Link Item 3<span class="material-symbols-outlined">chevron_right</span></span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>List 4</h3>
+                    <ul>
+                        <li>
+                            <a href="">
+                                <div class="text-icon">
+                                    <span class="text">Link Item 1<span class="material-symbols-outlined">chevron_right</span></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class="text-icon">
+                                    <span class="text">Link Item 2<span class="material-symbols-outlined">chevron_right</span></span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

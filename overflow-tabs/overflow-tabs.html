@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            ul {
+                list-style: none;
+            }
+            .container {
+                /* max-width: 500px; */
+                margin: 0 auto;
+                padding: 0 15px;
+            }
+            #tabs {
+                display: inline-flex;
+                /* height: 48px; */
+                margin: 46px 0;
+                border-radius: 44px;
+                background: #f2f2f2;
+                /* background: blue; */
+                position: relative;
+                max-width: 100%;
+                overflow: hidden;
+            }
+            #tabs.left-arrow,
+            #tabs.right-arrow {
+                display: none;
+            }
+            #tabs.overflow-tabs {
+
+            }
+            #tabs.overflow-tabs .left-arrow,
+            #tabs.overflow-tabs .right-arrow {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                /* position: absolute; */
+                position: relative;
+                width: 48px;
+                /* height: 48px; */
+                background: #f2f2f2;
+                border: 1px solid #f2f2f2;
+                cursor: pointer;
+                /* border-radius: 44px; */
+                z-index: 2;
+            }
+            #tabs.overflow-tabs .left-arrow {
+                /* left: 0; */
+                border-radius: 44px 0 0 44px;
+                &:after {
+                    content: '';
+                    position: absolute;
+                    top: -1px;
+                    bottom: -1px;
+                    /* right: -6px;
+                    width: 10px; */
+                    right: -16px;
+                    width: 16px;
+                    /* height: 48px; */
+                    /* height: 100%; */
+                    /* backdrop-filter: blur(8px); */
+                    background: linear-gradient(to left, rgba(242, 242, 242, 0.5) 0%,rgba(242, 242, 242, 1) 100%);
+                }
+            }
+            #tabs.overflow-tabs .right-arrow {
+                /* right: 0; */
+                border-radius: 0 44px 44px 0;
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: -1px;
+                    bottom: -1px;
+                    /* left: -6px;
+                    width: 10px; */
+                    left: -16px;
+                    width: 16px;
+                    /* height: 48px; */
+                    /* height: 100%; */
+                    background: linear-gradient(to right, rgba(242, 242, 242, 0.5) 0%,rgba(242, 242, 242, 1) 100%);
+                }
+            }
+            #tabs.overflow-tabs ul {
+                overflow-x: auto;
+            }
+            #tabs ul {
+                display: flex;
+                align-items: center;
+                white-space: nowrap;
+                width: fit-content;
+                margin: 0;
+                padding: 0;
+                /* position: relative; */
+                scrollbar-width: thin;
+                scrollbar-color: #d8d8d8 transparent;
+            }
+
+            #tabs ul li a {
+                display: block;
+                padding: 12px 20px;
+                color: #000;
+                text-transform: none;
+                border-radius: 44px;
+                /* width: 100%; */
+                text-decoration: none;
+                &:hover,
+                &:focus {
+                    background: #d8d8d8;
+                }
+            }
+            #tabs ul li a.active {
+                background: #000;
+                color: #fff;
+            }
+
+            .tab-content {
+                display: none;
+            }
+            .tab-content.active {
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <nav id="tabs" class="overflow-tabs">
+                <button class="left-arrow"><span class="material-symbols-outlined">chevron_left</span></button>
+                <ul>
+                    <li><a href="#tab1-content" id="tab1" class="tab active">Tab item 1</a></li>
+                    <li><a href="#tab2-content" id="tab2" class="tab">Tab item 2 - longer</a></li>
+                    <li><a href="#tab3-content" id="tab3" class="tab">Tab item 3</a></li>
+                    <li><a href="#tab4-content" id="tab4" class="tab">Tab item 4</a></li>
+                    <li><a href="#tab5-content" id="tab5" class="tab">Tab item 5</a></li>
+                    <li><a href="#tab6-content" id="tab6" class="tab">Tab item 6</a></li>
+                    <li><a href="#tab8-content" id="tab7" class="tab">Tab item 7</a></li>
+                    <li><a href="#tab9-content" id="tab8" class="tab">Tab item 8</a></li>
+                </ul>
+                <button class="right-arrow"><span class="material-symbols-outlined">chevron_right</span></button>
+            </nav>
+
+            <div class="tab-content" id="tab1-content">Content for Tab 1</div>
+            <div class="tab-content" id="tab2-content">Content for Tab 2</div>
+            <div class="tab-content" id="tab3-content">Content for Tab 3</div>
+            <div class="tab-content" id="tab4-content">Content for Tab 4</div>
+            <div class="tab-content" id="tab5-content">Content for Tab 5</div>
+            <div class="tab-content" id="tab6-content">Content for Tab 6</div>
+            <div class="tab-content" id="tab7-content">Content for Tab 7</div>
+            <div class="tab-content" id="tab8-content">Content for Tab 8</div>
+        </div>
+
+        <script>
+
+            // some jquery stuff if I choose to go that route
+
+            // $("#tabs").prepend('<button class="left-arrow"><span class="material-icons">chevron_left</span></button>');
+            // $("#tabs").append('<button class="right-arrow"><span class="material-icons">chevron_right</span></button>');
+
+            // checkTabs(); // run onload
+
+            // $(window).resize(function() {
+            //     checkTabs();
+            // });
+
+            // function checkTabs() {
+            //     if ($('#tabs ul').width() > $('#tabs').width()) {
+            //         $('#tabs').addClass('overflow-tabs');
+            //         $('.left-arrow, .right-arrow').css('display', 'flex');
+            //     } else {
+            //         $('#tabs').removeClass('overflow-tabs');
+            //         $('.left-arrow, .right-arrow').css('display', 'none');
+            //     }
+            // };
+
+            // $(window).resize(checkTabs);
+
+            document.addEventListener('DOMContentLoaded', () => {
+                const tabsList = document.querySelector('#tabs ul');
+                const tabs = document.querySelectorAll('#tabs ul li a');
+                const tabContents = document.querySelectorAll('.tab-content');
+                const leftArrow = document.querySelector('.left-arrow');
+                const rightArrow = document.querySelector('.right-arrow');
+
+                // Show initial active tab content
+                const initialActiveTab = document.querySelector('.tab.active');
+                if (initialActiveTab) {
+                    const targetContentId = initialActiveTab.id + '-content';
+                    document.getElementById(targetContentId).classList.add('active'); // could be better...
+                }
+
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', () => {
+                        // Remove 'active' class from all tabs and content
+                        tabs.forEach(t => t.classList.remove('active'));
+                        tabContents.forEach(tc => tc.classList.remove('active'));
+
+                        // Add 'active' class to clicked tab and its content
+                        tab.classList.add('active');
+                        const targetContentId = tab.id + '-content';
+                        document.getElementById(targetContentId).classList.add('active');
+
+                        // Scroll the clicked tab into view if it's not fully visible
+                        tab.scrollIntoView({ behavior: 'smooth', inline: 'center' });
+                    });
+                });
+
+                leftArrow.addEventListener('click', () => {
+                    tabsList.scrollBy({
+                        left: -100, // Adjust scroll amount as needed
+                        behavior: 'smooth'
+                    });
+                });
+
+                rightArrow.addEventListener('click', () => {
+                    tabsList.scrollBy({
+                        left: 100, // Adjust scroll amount as needed
+                        behavior: 'smooth'
+                    });
+                });
+
+                // Optional: Hide/show arrows based on scroll position
+                tabsList.addEventListener('scroll', () => {
+                    leftArrow.style.display = tabsList.scrollLeft > 0 ? 'flex' : 'none';
+                    rightArrow.style.display = tabsList.scrollLeft + tabsList.clientWidth < tabsList.scrollWidth ? 'flex' : 'none';
+                });
+
+                // Initial check for arrow visibility
+                tabsList.dispatchEvent(new Event('scroll'));
+            });
+        </script>
+    </body>
+</html>

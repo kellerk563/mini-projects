@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <style>
+            #scroll-progress-bar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 0%;
+                height: 5px;
+                background-color: #007bff;
+                z-index: 999;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="scroll-progress-bar"></div>
+
+        <div style="height: 2000px;">
+            <p>Scroll down to see the progress bar in action.</p>
+        </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const progressBar = document.getElementById("scroll-progress-bar");
+
+                window.addEventListener("scroll", () => {
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+                    const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                    const scrollPercent = (scrollTop / docHeight) * 100;
+
+                    progressBar.style.width = scrollPercent + "%";
+                });
+            });
+        </script>
+    </body>
+</html>

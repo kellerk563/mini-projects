@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <select id="parentSelect" size="5" multiple> <!-- multiple doesn't work right now -->
+            <option value="">Select a category</option>
+            <option value="fruits">Fruits</option>
+            <option value="vegetables">Vegetables</option>
+        </select>
+
+        <select id="childSelect" size="5" multiple>
+            <option value="">Select an item</option>
+        </select>
+
+        <script>
+            const data = {
+                fruits: ['Apple', 'Banana', 'Orange'],
+                vegetables: ['Carrot', 'Broccoli', 'Spinach']
+            };
+
+            document.getElementById('parentSelect').onchange = function() {
+                updateChildSelect();
+            }
+
+            function updateChildSelect() {
+                const parentSelect = document.getElementById('parentSelect');
+                const childSelect = document.getElementById('childSelect');
+                const selectedCatagory = parentSelect.value;
+
+                console.log(parentSelect);
+                console.log(selectedCatagory);
+
+                childSelect.innerHTML = '<option value="">Select an item</option>';
+
+                if (selectedCatagory && data[selectedCatagory]) {
+                    data[selectedCatagory].forEach(item => {
+                        const option = document.createElement('option');
+                        option.value = item;
+                        option.textContent = item;
+                        childSelect.appendChild(option);
+                    });
+                }
+            }
+        </script>
+
+        <hr />
+
+        <select id="countrySelect" size="5" multiple>
+            <option value="">Select a Country</option>
+            <option value="USA">USA</option>
+            <option value="Canada">Canada</option>
+            <option value="Mexico">Mexico</option>
+        </select>
+    
+        <select id="citySelect" size="5" multiple>
+            <option value="">Select a City</option>
+        </select>
+
+        <script>
+            const citiesByCountry = {
+                USA: ["New York", "Los Angeles", "Chicago"],
+                Canada: ["Toronto", "Vancouver", "Montreal"],
+                Mexico: ["Mexico City", "Guadalajara", "Monterrey"]
+            };
+
+            document.getElementById("countrySelect").onchange = function() {
+                populateCitySelect(this.value);
+            };
+
+            function populateCitySelect(country) {
+                const citySelect = document.getElementById("citySelect");
+                citySelect.innerHTML = '<option value="">Select a City</option>'; // Clear existing options
+
+                if (country && citiesByCountry[country]) {
+                    citiesByCountry[country].forEach(city => {
+                        const option = document.createElement("option");
+                        option.value = city;
+                        option.textContent = city;
+                        citySelect.appendChild(option);
+                    });
+                }
+            }
+        </script>
+
+        <hr />
+
+        <select id="primarySelect" size="5" multiple>
+            <option value="optionA">Option A</option>
+            <option value="optionB">Option B</option>
+            <option value="optionC">Option C</option>
+        </select>
+          
+        <select id="secondarySelect" size="5">
+            <!-- Options will be populated here by JavaScript -->
+        </select>
+
+        <script>
+            document.getElementById('primarySelect').addEventListener('change', function() {
+                const primarySelect = this;
+                const secondarySelect = document.getElementById('secondarySelect');
+
+                // Clear existing options in secondary select
+                secondarySelect.innerHTML = '';
+
+                // Get selected values from primary select
+                const selectedValues = Array.from(primarySelect.selectedOptions).map(option => option.value);
+
+                // Populate secondary select based on multiple selections
+                if (selectedValues.includes('optionA') && selectedValues.includes('optionB')) {
+                    const newOption1 = document.createElement('option');
+                    newOption1.value = 'combinationAB';
+                    newOption1.textContent = 'Combination A & B';
+                    secondarySelect.appendChild(newOption1);
+                } else if (selectedValues.includes('optionA')) {
+                    const newOption2 = document.createElement('option');
+                    newOption2.value = 'onlyA';
+                    newOption2.textContent = 'Only Option A selected';
+                    secondarySelect.appendChild(newOption2);
+                } else if (selectedValues.includes('optionB')) {
+                    const newOption3 = document.createElement('option');
+                    newOption3.value = 'onlyB';
+                    newOption3.textContent = 'Only Option B selected';
+                    secondarySelect.appendChild(newOption3);
+                }
+            });
+        </script>
+
+        <hr />
+
+        <select id="selectInput1" multiple="multiple" size="5">
+            <option value="fruit">Fruit</option>
+            <option value="vegetable">Vegetable</option>
+            <option value="dairy">Dairy</option>
+            <option value="meat">Meat</option>
+        </select>
+        
+        <select id="selectInput2" size="5">
+            <option value="">Select an item</option>
+        </select>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#selectInput1').on('change', function() {
+                    var selectedCategories = $(this).val();
+        
+                    $('#selectInput2').empty(); // Clear existing options
+        
+                    if (selectedCategories && selectedCategories.length > 1) {
+                        // If more than one category is selected, add specific options to selectInput2
+                        $('#selectInput2').append($('<option>', {
+                            value: 'multiple_selection_item_1',
+                            text: 'Item for multiple selections 1'
+                        }));
+                        $('#selectInput2').append($('<option>', {
+                            value: 'multiple_selection_item_2',
+                            text: 'Item for multiple selections 2'
+                        }));
+                    } else if (selectedCategories && selectedCategories.length === 1) {
+                        // If only one category is selected, add options based on that category
+                        if (selectedCategories[0] === 'fruit') {
+                            $('#selectInput2').append($('<option>', { value: 'apple', text: 'Apple' }));
+                            $('#selectInput2').append($('<option>', { value: 'banana', text: 'Banana' }));
+                        } else if (selectedCategories[0] === 'vegetable') {
+                            $('#selectInput2').append($('<option>', { value: 'carrot', text: 'Carrot' }));
+                            $('#selectInput2').append($('<option>', { value: 'broccoli', text: 'Broccoli' }));
+                        }
+                        // Add more conditions for other single selections
+                    } else {
+                        // No selection or cleared selection, add a default option
+                        $('#selectInput2').append($('<option>', { value: '', text: 'Select an item' }));
+                    }
+                });
+            });
+        </script>
+
+        <hr />
+
+        <select id="masterSelect" size="5" multiple>
+            <option value="">Select Category</option>
+            <option value="fruits">Fruits</option>
+            <option value="vegetables">Vegetables</option>
+          </select>
+          
+          <select id="dependentSelect" size="5">
+            <option value="">Select Item</option>
+          </select>
+
+          <script>
+            const datas = {
+                fruits: ["Apple", "Banana", "Orange"],
+                vegetables: ["Carrot", "Spinach", "Broccoli"]
+            };
+
+            $(document).ready(function() {
+                $('#masterSelect').on('change', function() {
+                    const selectedCategory = $(this).val();
+                    const $dependentSelect = $('#dependentSelect');
+
+                    console.log(selectedCategory);
+
+                    // Clear existing options in the dependent select
+                    $dependentSelect.empty();
+                    $dependentSelect.append('<option value="">Select Item</option>'); // Add a default option
+
+                    if (selectedCategory in datas) {
+                        for (let i = 0; i < selectedCategory.length; i++) {
+                            datas[selectedCategory].forEach(function(item) {
+                                $dependentSelect.append($('<option>', {
+                                    value: item.toLowerCase(),
+                                    text: item
+                                }));
+                            });
+                        }
+                        // datas[selectedCategory].forEach(function(item) {
+                        //     $dependentSelect.append($('<option>', {
+                        //         value: item.toLowerCase(),
+                        //         text: item
+                        //     }));
+                        // });
+                        // console.log($dependentSelect);
+                    }
+                });
+            });
+          </script>
+    </body>
+</html>
