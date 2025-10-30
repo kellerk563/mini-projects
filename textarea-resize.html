@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <p>
+            By using <code>Alt</code> and <code>arrow keys</code> you can use a keyboard to
+            resize a <code>textarea</code>.
+        </p>
+        <p>This is to help improve a11y!</p>
+        <ul>
+            <li><code>Alt</code> + <code>&#8592</code>: Width smaller</li>
+            <li><code>Alt</code> + <code>&#8593</code>: Height larger</li>
+            <li><code>Alt</code> + <code>&#8594</code>: Width larger</li>
+            <li><code>Alt</code> + <code>&#8595</code>: Height smaller</li>
+        </ul>
+        <label for="the-textarea">Resizing using keyboard example</label>
+        <br />
+        <textarea id="the-textarea" name="the-textarea" rows="10" cols="60" autofocus>
+Go ahead and try resizing this using your keyboard
+        </textarea>
+        <script>
+            $('textarea').focus(function(event) {
+                let currentTextarea = $(event.currentTarget);
+                $(currentTextarea).keydown(function(event) {
+                    let keycode =
+                            (event.keyCode ? 
+                            event.keyCode : 
+                            event.which);
+                    let currHeight = $(currentTextarea).height();
+                    let currWidth = $(currentTextarea).width();
+                    if (event.altKey && keycode == '38') {
+                        $(currentTextarea).css('height', currHeight + 10);
+                        event.preventDefault(); // Prevent from jumping to the top of the page...
+                    } else if (event.altKey && keycode == '40') {
+                        $(currentTextarea).css('height', currHeight - 10);
+                        event.preventDefault();
+                    } else if (event.altKey && keycode == '39') {
+                        $(currentTextarea).css('width', currWidth + 10);
+                        event.preventDefault();
+                    } else if (event.altKey && keycode == '37') {
+                        $(currentTextarea).css('width', currWidth - 10);
+                        event.preventDefault();
+                    }
+                    event.altKey = false;
+                });
+            });
+        </script>
+    </body>
+</html>

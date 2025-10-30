@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <ul id="myList">
+            <li>Apple</li>
+            <li>Banana</li>
+            <li>Cat</li>
+            <li>Dog</li>
+            <li>Ant</li>
+            <li>Bear</li>
+        </ul>
+        
+        <script>
+            function addAlphabeticalHeadings(listId) {
+                const list = document.getElementById(listId);
+                if (!list) return;
+
+                const items = Array.from(list.children); // Get list items as an array
+
+                // Sort the items alphabetically based on their text content
+                items.sort((a, b) => a.textContent.localeCompare(b.textContent));
+
+                // Clear the original list to re-populate with headings and sorted items
+                list.innerHTML = '';
+
+                let currentHeading = '';
+                items.forEach(item => {
+                    const firstLetter = item.textContent.charAt(0).toUpperCase();
+
+                    // If the first letter changes, add a new heading
+                    if (firstLetter !== currentHeading) {
+                        currentHeading = firstLetter;
+                        const heading = document.createElement('li'); // Or h2, h3 etc.
+                        heading.textContent = currentHeading;
+                        heading.classList.add('alphabet-heading'); // Optional class for styling
+                        list.appendChild(heading);
+                    }
+                    list.appendChild(item); // Append the sorted item
+                });
+            }
+
+        // Call the function to apply headings to your list
+        addAlphabeticalHeadings('myList');
+    </script>
+    </body>
+</html>

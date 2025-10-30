@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </head>
+    <body>
+        <nav>
+            <ul class="listnav">
+                <li><a href="">list item 1</a></li>
+                <li><a href="">list item 2</a></li>
+                <li><a href="">list item 2</a></li>
+            </ul>
+        </nav>
+        <nav>
+            <ul class="listnav">
+                <li><a href="">list item 1</a></li>
+                <li><a href="">list item 2</a></li>
+                <li><a href="">list item 2</a></li>
+            </ul>
+        </nav>
+        <nav>
+            <ul class="listnav">
+                <li><a href="">list item 1</a></li>
+                <li><a href="">list item 2</a></li>
+                <li><a href="">list item 2</a></li>
+            </ul>
+        </nav>
+        
+        <script>
+            let navCount = 0;
+            $('.listnav').each(function() {
+                navCount++;
+                let navID = 'nav' + navCount;
+                $(this).attr('id', navID);
+            });
+        </script>
+        <!-- 
+            Expected output:
+            
+            <nav>
+                <ul class="listnav" id="nav1">
+                    <li><a href="">list item 1</a></li>
+                    <li><a href="">list item 2</a></li>
+                    <li><a href="">list item 2</a></li>
+                </ul>
+            </nav>
+            <nav>
+                <ul class="listnav" id="nav2">
+                    <li><a href="">list item 1</a></li>
+                    <li><a href="">list item 2</a></li>
+                    <li><a href="">list item 2</a></li>
+                </ul>
+            </nav>
+            <nav>
+                <ul class="listnav" id="nav3">
+                    <li><a href="">list item 1</a></li>
+                    <li><a href="">list item 2</a></li>
+                    <li><a href="">list item 2</a></li>
+                </ul>
+            </nav>
+        -->
+    </body>
+</html>

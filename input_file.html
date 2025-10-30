@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            label {display: block;}
+            input[type="file"] {margin-top: 1rem; border: 1px solid #000;}
+
+            .form1 input[type="file"] {
+                color: #073b4c;
+                background-color: #ade8f4;
+                padding: 0.5rem;
+                border: 1px solid #073b4c;
+                border-radius: 0.5rem;
+                cursor: pointer;
+            }
+            .form1 input[type="file"]:focus {
+                color: #ade8f4;
+                background-color: #073b4c;
+                border: 1px solid #ade8f4;
+            }
+
+            .form2 input[type="file"]::file-selector-button {
+                color: #073b4c;
+                background-color: #ade8f4;
+                padding: 0.5rem;
+                border: 1px solid #073b4c;
+                border-radius: 0.5rem;
+                cursor: pointer;
+            }
+            .form2 input[type="file"]::file-selector-button:focus {
+                color: #ade8f4;
+                background-color: #073b4c;
+                border: 1px solid #ade8f4;
+            }
+
+            .form3 input[type="file"]::-webkit-file-upload-button {
+                visibility: hidden;
+            }
+            .form3 input[type="file"]:before {
+                content: 'Select some files';
+                display: inline-block;
+                color: #073b4c;
+                background-color: #ade8f4;
+                padding: 0.5rem;
+                border: 1px solid #073b4c;
+                border-radius: 0.5rem;
+                cursor: pointer;
+                -webkit-user-select: none;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>Versions tested on 11/04/2024</h3>
+        <span>Firefox 132.0.1</span><br />
+        <span>Chrome 130.0.6723.92</span><br />
+        <span>Edge 130.0.2849.68</span>
+        <div class="form1">
+            <p>Notice the difference between browsers</p>
+            <form>
+                <label for="uploadFile">Upload File</label>
+                <input type="file" id="uploadFile" name="filename">
+            </form>
+        </div>
+        <hr>
+        <div class="form2">
+            <p>Focus/styling works on Firefox but not Chrome and Edge with <code>::file-selector-button</code></p>
+            <form>
+                <label for="uploadFile2">Upload File</label>
+                <input type="file" id="uploadFile2" name="filename">
+            </form>
+        </div>
+        <hr>
+        <div class="form3">
+            <p>Nothing happens when viewing in Firefox but looks better in Chrome and Edge</p>
+            <p>It's hidding the input button and adding some <code>:before</code> content, "Select some files", to change the text</p>
+            <form>
+                <label for="uploadFile3">Upload File</label>
+                <input type="file" id="uploadFile3" name="filename">
+            </form>
+        </div>
+    </body>
+</html>
