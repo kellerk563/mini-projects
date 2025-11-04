@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    <body>
+        <h1>Tips</h1>
+        <h2>Debugging overflow on a page</h2>
+        <pre><code>
+            * {
+                outline: 1px solid red !important;
+            }
+            * {
+                outline: 1px solid red !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+            }
+        </code></pre>
+        <h2>Default browser focus styles</h2>
+        <pre><code>
+            a:focus-visible,button:focus-visible{outline: 2px auto #000 !important;outline-offset: 2px !important}
+            a:focus:not(:focus-visible),button:focus:not(:focus-visible){outline:thin dotted !important;}
+        </code></pre>
+    </body>
+</html>

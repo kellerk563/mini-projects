@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <style>
             * {padding: 0; margin: 0; box-sizing: border-box;}
 
@@ -8,15 +10,11 @@
                 background: #F8F7F7;
             }
 
-            .wrap {
+            .site-wrapper {
                 width: 100%;
-                padding-left: 15px;
-                padding-right: 15px;
+                padding-left: 36px;
+                padding-right: 36px;
                 margin: 0 auto;
-                @media(min-width: 576px) {
-                    padding-left: 36px;
-                    padding-right: 36px;
-                }
             }
 
             #content-container {
@@ -25,14 +23,28 @@
                 @media(min-width: 768px) {
                     background: none;
                 }
-                .wrap {
+                .site-wrapper {
                     display: flex;
                     flex-wrap: wrap;
                 }
+                ul {
+                    padding: 1rem;
+                    li {
+                        padding-bottom: 12px;
+                    }
+                }
             }
 
-            #col-nav,
-            #col-content {
+            ul {
+                list-style-position: inside;
+            }
+            code {
+                padding: 5px;
+                border: 2px solid #000;
+            }
+
+            #leftnav,
+            #content {
                 padding-top: 20px;
                 padding-bottom: 20px;
 
@@ -41,7 +53,7 @@
                     padding-bottom: 45px;
                 }
             }
-            #col-nav {
+            #leftnav {
                 flex: 0 0 100%;
                 
                 @media(min-width: 768px) {
@@ -56,15 +68,11 @@
                     max-width: 23%;
                 }
             }
-            #col-content {
+            #content {
                 width: 100vw;
                 background: #fff;
-                margin: 0 -15px;
-                padding: 20px 15px;
-                @media(min-width: 576px) {
-                    margin: 0 -36px;
-                    padding: 20px 36px;
-                }
+                margin: 0 -36px;
+                padding: 20px 36px;
                 @media(min-width: 768px) {
                     flex: 0 0 65%;
                     max-width: 65%;
@@ -82,38 +90,81 @@
                         background: #fff;
                         z-index: -1;
                     }
+                    &.add-border:before {
+                        border: 1px dotted red;
+                    }
                 }
                 @media(min-width: 992px) {
                     flex: 0 0 74%;
                     max-width: 74%;
+                }
+                #toggle-index {
+                    margin: 20px 0;
                 }
             }
         </style>
     </head>
     <body>
         <div id="content-container">
-            <div class="wrap">
-                <aside id="col-nav">
+            <div class="site-wrapper">
+                <aside id="leftnav">
                     <nav>
                         <ul>
-                            <li><a href="">List Item 1</a></li>
-                            <li><a href="">List Item 2</a></li>
-                            <li><a href="">List Item 3</a></li>
-                            <li><a href="">List Item 4</a></li>
-                            <li><a href="">List Item 5</a></li>
+                            <li><a href="#">List Item 1</a></li>
+                            <li><a href="#">List Item 2</a></li>
+                            <li><a href="#">List Item 3</a></li>
+                            <li><a href="#">List Item 4</a></li>
+                            <li><a href="#">List Item 5</a></li>
                         </ul>
                     </nav>
                 </aside>
-                <main id="col-content">
+                <main id="content">
                     <h1>Testing background color</h1>
-                    <p>Lorem ipsum dolor sit, amet consectetur 
-                        adipisicing elit. In aliquid molestiae 
-                        voluptates voluptatibus voluptate possimus 
-                        nemo reprehenderit veritatis ratione neque 
-                        et itaque tenetur quae quos iusto, laboriosam 
-                        quas totam ea!</p>
+                    <span>&#8592;</span><button type="button" id="toggle-index">Toggle z-index</button>
+                    <p>On screen size < 768px, both the left sidenav and main content
+                        are full width. On screen size >= 768px, their background colors 
+                        are bummper to bumper.</p>
+
+                    <p>When you toggle the z-index, the left sidenav will appear 
+                        above the main content with a red dotted border to 
+                        indicate the change.</p>
+
+                    <p>Pretty much just something funky I've ran into when trying to 
+                        make something look full width with background colors.</p>
+
+                    <ul>
+                        <li>body background color: <code style="background: #F8F7F7;">#F8F7F7</code></li>
+                        <li>left sidenav background color: <code style="background: #f2f0f0;">#f2f0f0</code></li>
+                        <li>right main content background color: <code style="background: #fff;">#fff</code></li>
+                    </ul>
                 </main>
             </div>
         </div>
+
+        <script>
+            const toggleIndexBtn = document.getElementById('toggle-index');
+            const leftnav = document.getElementById('leftnav');
+            const content = document.getElementById('content');
+
+            let zIndexToggled = false;
+
+            toggleIndexBtn.addEventListener('click', () => {
+                if (!zIndexToggled) {
+                    leftnav.style.position = 'relative';
+                    leftnav.style.zIndex = '1';
+                    content.style.position = 'relative';
+                    content.style.zIndex = '2';
+                    content.classList.add('add-border');
+                    zIndexToggled = true;
+                } else {
+                    leftnav.style.position = '';
+                    leftnav.style.zIndex = '';
+                    content.style.position = '';
+                    content.style.zIndex = '';
+                    content.classList.remove('add-border');
+                    zIndexToggled = false;
+                }
+            });
+        </script>
     </body>
 </html>
