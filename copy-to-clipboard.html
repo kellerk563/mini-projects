@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+        <style>
+            .code-container {
+                display: inline-block;
+                position: relative;
+                /* width: 100%; */
+                max-width: 500px;
+                .copy-code {
+                    position: absolute;
+                    top: 20px;
+                    right: 10px;
+                    background: none;
+                    border: none;
+                    color: #fff;
+                    font-size: 1.25rem;
+                    cursor: pointer;
+                }
+                .tooltip {
+                    display: block;
+                    position: absolute;
+                    top: -32px;
+                    right: -15px;
+                    color: #fff;
+                    background: #44444E;
+                    padding: 10px 15px;
+                    border-radius: 8px;
+                    &:after {
+                        content: '\e5c5';
+                        font-family: 'Material Symbols Outlined';
+                        font-size: 24px;
+                        position: absolute;
+                        bottom: -16px;
+                        left: 36%;
+                        color: #44444E;
+                    }
+                }
+            }
+            pre {
+                /* background: #313647; */
+                background: #1B3C53;
+                border-radius: 8px;
+                overflow-x: auto;
+            }
+            code {
+                display: block;
+                padding: 20px;
+                color: #fff;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Copy to Clipboard</h1>
+        <div class="code-container">
+            <button class="copy-code">
+                <span class="material-symbols-outlined">
+                    content_copy
+                </span>
+            </button>
+            <pre><code>
+* {
+    outline: 1px solid red !important;
+}
+
+* {
+    outline: 1px solid red !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+            </code></pre>
+        </div>
+        <div class="code-container">
+             <button class="copy-code">
+                <span class="material-symbols-outlined">
+                    content_copy
+                </span>
+            </button>
+            <pre><code>
+a:focus-visible,button:focus-visible{outline: 2px auto #000 !important;outline-offset: 2px !important}
+a:focus:not(:focus-visible),button:focus:not(:focus-visible){outline:thin dotted !important;}
+            </code></pre>
+        </div>
+            <script>
+                $(function() {
+                    const tooltip = $('<span class="tooltip">Copied!</span>');
+                    $('.copy-code').on('click', function() {
+                        let copiedCode = $(this).siblings('pre').find('code').text().trim();
+                        navigator.clipboard.writeText(copiedCode);
+
+                        $(this).before(tooltip);
+                        $(tooltip).show().delay(1000).fadeOut(300);
+                        // $(tooltip).show();
+                    });
+                });
+            </script>
+    </body>
+</html>
