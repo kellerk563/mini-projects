@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <style>
+            .link-imgs {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                @media(min-width: 768px) {
+                    flex-direction: row;
+                }
+                a {
+                    display: block;
+                    background-size: cover;
+                    background-position: center;
+                    background-color: #00416A; /* fallback */
+                    border-radius: 8px;
+                    width: 400px;
+                    height: 200px;
+                    position: relative;
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: linear-gradient(360deg,rgba(0, 65, 106, 0.82) 8%, rgba(255, 255, 255, 0) 40%);
+                        border-bottom-left-radius: 8px;
+                        border-bottom-right-radius: 8px;
+                    }
+                    &.image1 {
+                        background-image: url('iowa-city.jpg');
+                    }
+                    &.image2 {
+                        background-image: url('west-virgina.jpg');
+                    }
+                    .text {
+                        position: absolute;
+                        bottom: 0;
+                        width: 100%;
+                        font-weight: bold;
+                        color: #fff;
+                        margin-bottom: 10px;
+                        padding: 15px 0 15px 30px;
+                        border-left: 4px solid #b85852;
+                        transform: scaleX(1);
+                        transform-origin: left center;
+                        z-index: 2;
+                        transition: border-left-width 0.3s ease, transform 0.3s ease;
+                    }
+                    &:is(:hover, :focus) {
+                        .text {
+                            border-left-width: 6px;
+                            transform: scaleX(1.1);
+                        }
+                    }
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Image Tiles/Links</h1>
+        <div class="link-imgs">
+            <a class="image1" href="#">
+                <span class="text">Iowa City, IA</span>
+            </a>
+            <a class="image2" href="#">
+                <span class="text">West Virgina</span>
+            </a>
+        </div>
+    </body>
+</html>
