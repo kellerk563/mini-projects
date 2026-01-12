@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Toggles</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script type="text/javascript" src="js/script.js"></script>
+    </head>
+    <body>
+        <div class="site-container">
+            <h1>Toggle Example</h1>
+            <div class="about">
+                <p>A "generic" way to toggle buttons/menus that updated their state and aria attributes.</p>
+            </div>
+            <div class="nav">
+                <button id="toggle-menu" class="toggle-btn" aria-controls="nav" aria-expanded="false">Toggle menu</button>
+                <div id="nav" aria-hidden="true">
+                    <ul>
+                        <li><a href="#">Link item 1</a></li>
+                        <li><a href="#">Link item 2</a></li>
+                        <li><a href="#">Link item 3</a></li>
+                    </ul>
+                </div>
+                <p class="values">
+                    <span><b>Button State: </b></span><span class="button-state"></span><b> Button Aria: </b><span class="button-aria"></span><b> Menu State: </b><span class="menu-state"></span><b> Menu Aria: </b><span class="menu-aria"></span>
+                </p>
+            </div>
+            <div class="nav">
+                <button id="toggle-menu2" class="toggle-btn slide" aria-controls="nav2" aria-expanded="false">Slide toggle menu</button>
+                <div id="nav2" aria-hidden="true">
+                    <ul>
+                        <li><a href="#">Link item 1</a></li>
+                        <li><a href="#">Link item 2</a></li>
+                        <li><a href="#">Link item 3</a></li>
+                    </ul>
+                </div>
+                <p class="values">
+                    <span><b>Button State: </b></span><span class="button-state"></span><b> Button Aria: </b><span class="button-aria"></span><b> Menu State: </b><span class="menu-state"></span><b> Menu Aria: </b><span class="menu-aria"></span>
+                </p>
+            </div>
+        </div>
+    </body>
+</html>
