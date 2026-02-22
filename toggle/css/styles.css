@@ -1,27 +1,33 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  font-size: 1rem;
-  line-height: 1.5;
+	font-family: Arial, sans-serif;
+	font-size: 1rem;
+	line-height: 1.5;
 }
 
 .site-container {
-  padding: 0 20px;
-  margin: 0 auto;
-  width: 100%;
+	padding: 0 20px;
+	margin: 0 auto;
+	width: 100%;
 }
 
 .nav {
-  margin: 1rem 0;
+	margin: 1rem 0;
 }
 .nav ul {
-  list-style-position: inside;
+	list-style-position: inside;
 }
 
 #nav,
 #nav2 {
-  display: none;
+	display: none;
 }
 #nav.active,
 #nav2.active {
-  display: block;
-}/*# sourceMappingURL=styles.css.map */
+	display: block;
+}
