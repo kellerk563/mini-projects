@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../if-has-parent-css/css/styles.css" />
+</head>
+
+<body>
+	<h1>Parent selector (&amp;)</h1>
+	<h2>Example</h2>
+	<div class="parent">
+		<p>This has <code>div.parent</code></p>
+	</div>
+	<div>
+		<p>and this does not</p>
+	</div>
+
+	<h2>Code</h2>
+	<pre><code>
+p {
+  font-size: 1.2rem;
+
+  .parent & {
+    // when p has class .parent
+    background: red;
+  }
+}
+		</code></pre>
+</body>
+
+</html>
