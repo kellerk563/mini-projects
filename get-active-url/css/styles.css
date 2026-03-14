@@ -48,7 +48,6 @@ header {
 						color: #fff;
 						&:after {
 							height: 100%;
-							background: #003049;
 						}
 					}
 				}
