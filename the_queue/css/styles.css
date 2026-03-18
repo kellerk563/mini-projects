@@ -23,26 +23,6 @@ h1 {
 	padding: 1.2rem 0;
 }
 
-/* .form-container {
-	position: relative;
-	margin-bottom: 20px;
-}
-
-#add-queue {
-	padding: 20px;
-	width: 100%;
-	border-radius: 30px;
-}
-
-#add-item {
-	position: absolute;
-	right: 0;
-	padding: 20px;
-	border-radius: 30px;
-	width: 30%;
-	cursor: pointer;
-} */
-
 .form-container {
 	display: flex;
 	align-items: center;
@@ -63,8 +43,8 @@ h1 {
 	right: 0;
 	background: none;
 	border: none;
+	color: #000;
 	cursor: pointer;
-
 }
 
 .the-list {
@@ -79,11 +59,14 @@ h1 {
 			padding: 10px 0;
 			cursor: pointer;
 			&:before {
-				font-family: 'Material Symbols Outlined';
 				content: 'circle';
+				font-family: 'Material Symbols Outlined';
 				font-size: 1.5rem;
 				padding-right: 10px;
 				/* font-variation-settings: 'FILL' 0; */
+			}
+			span {
+				padding-left: 10px;
 			}
 			&.selected {
 				&:before {
@@ -100,8 +83,8 @@ h1 {
 				margin-left: auto;
 				cursor: pointer;
 				&:after {
-					font-family: 'Material Symbols Outlined';
 					content: 'delete';
+					font-family: 'Material Symbols Outlined';
 					font-size: 1.5rem;
 					color: #C00707;
 				}
