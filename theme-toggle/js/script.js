@@ -11,4 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
 			this.setAttribute('data-theme', 'light');
 		}
 	});
+
+	if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+		document.body.classList.add('dark');
+		themeToggle.setAttribute('data-theme', 'dark');
+	}
 });

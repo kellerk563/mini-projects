@@ -52,6 +52,11 @@ main {
 
 #main-content {
 	flex: 0 0 100%;
+	padding: 50px 0;
+
+	h1 {
+		margin-bottom: 30px;
+	}
 }
 
 #theme-toggle {
@@ -73,7 +78,6 @@ main {
 		width: 16px;
 		height: 16px;
 		padding: 5px;
-		/* border: 1px solid #000; */
 		border-radius: 50%;
 		background: #fff;
 		transform: translateX(0);
@@ -93,18 +97,39 @@ footer {
 	.wrapper {
 		border-top: 1px solid var(--color-dark-blue);
 	}
+
+	span {
+		display: block;
+		padding: 20px 0;
+	}
+
+	a {
+		color: var(--color-dark-blue);
+	}
 }
 
 body.dark {
-	/* color: var(--color-teal); */
+	color: #fff;
+	background: var(--color-dark-blue);
 
 	header {
+		border-bottom-color: var(--color-blue);
 		background: var(--color-dark-blue);
 		a {
 			color: var(--color-teal);
 			&:is(:hover,:focus) {
 				color: var(--color-off-white);
 			}
+		}
+	}
+
+	footer {
+		.wrapper {
+			border-top-color: var(--color-blue);
+		}
+
+		a {
+			color: #fff;
 		}
 	}
 }
