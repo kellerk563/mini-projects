@@ -1,0 +1,119 @@
+:root {
+	--color-blue: #0984E3;
+	--color-dark-blue: #1E272E;
+	--color-teal: #00CEC9;
+	--color-off-white: #F5F6FA;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	color: var(--color-dark-blue);
+	background: var(--color-off-white);
+}
+
+.wrapper {
+	width: 100%;
+	padding: 0 20px;
+	margin: 0 auto;
+}
+
+header {
+	border-bottom: 1px solid var(--color-dark-blue);
+	margin-bottom: 0.875rem;
+	ul {
+		display: flex;
+		li {
+			list-style: none;
+			a {
+				display: inline-block;
+				text-decoration: none;
+				padding: 15px 20px;
+				color: var(--color-dark-blue);
+				&:is(:hover,:focus) {
+					text-decoration: underline;
+					color: var(--color-blue);
+				}
+			}
+		}
+	}
+}
+
+main {
+	.wrapper {
+		display: flex;
+		flex-wrap: wrap;
+	}
+}
+
+#main-content {
+	flex: 0 0 100%;
+}
+
+#theme-toggle {
+	position: relative;
+	width: 85px;
+	padding: 5px;
+	margin-left: auto;
+	border: none;
+	border-radius: 25px;
+	background: #BFC6C4;
+	cursor: pointer;
+	&:before {
+		content: '\e518';
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-family: 'Material Symbols Outlined';
+		font-size: 1rem;
+		width: 16px;
+		height: 16px;
+		padding: 5px;
+		/* border: 1px solid #000; */
+		border-radius: 50%;
+		background: #fff;
+		transform: translateX(0);
+		transition: transform 0.3s ease;
+	}
+	&[data-theme='dark'] {
+		&:before {
+			content: '\e51c';
+			background: #2c2f33;
+			color: #fff;
+			transform: translateX(calc(85px - 36px));
+		}
+	}
+}
+
+footer {
+	.wrapper {
+		border-top: 1px solid var(--color-dark-blue);
+	}
+}
+
+body.dark {
+	/* color: var(--color-teal); */
+
+	header {
+		background: var(--color-dark-blue);
+		a {
+			color: var(--color-teal);
+			&:is(:hover,:focus) {
+				color: var(--color-off-white);
+			}
+		}
+	}
+}
+
+.sr-only {
+	position:absolute;
+	left:-10000px;
+	top:auto;
+	width:1px;
+	height:1px;
+	overflow:hidden;
+}
