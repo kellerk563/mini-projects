@@ -94,6 +94,28 @@ orientation: portrait
 @media (orientation: landscape) and (max-width: 812px)
 			</code></pre>
 		</div>
+		<div class="code-container">
+			<h2>Immediately Invoked Function Expression (IIFE)</h2>
+			<pre><code>
+(function() { ... })();
+			</code></pre>
+			<p>Vs not</p>
+			<pre><code>
+// define function
+function() { ... }
+
+// call function
+function(value1, value2 );
+			</code></pre>
+		</div>
+		<div class="code-container">
+			<h2>Output as JSON</h2>
+			<pre><code>
+const data = JSON.stringify(dailyData);
+
+const data = JSON.stringify(dailyData, null, 2);
+			</code></pre>
+		</div>
 	</div>
 </body>
 
